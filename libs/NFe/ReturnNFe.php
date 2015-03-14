@@ -86,14 +86,14 @@ class ReturnNFe
         if (! isset($tag)) {
             return $aResposta;
         }
-        $retNFe = ! empty($tag->getElementsByTagName('retNFe')->item(0))
+        $retNFe = $tag->getElementsByTagName('retNFe')->length > 0
                 ? $tag->getElementsByTagName('retNFe')->item(0)
                 : '';
         if (! empty($retNFe)) {
             $aRetNFe['cStat'] = $retNFe->getElementsByTagName('cStat')->item(0)->nodeValue;
             $aRetNFe['xMotivo'] = $retNFe->getElementsByTagName('xMotivo')->item(0)->nodeValue;
             $aRetNFe['chNFe'] = $retNFe->getElementsByTagName('chNFe')->item(0)->nodeValue;
-            $nfeProc = ! empty($retNFe->getElementsByTagName('nfeProc')->item(0))
+            $nfeProc = $retNFe->getElementsByTagName('nfeProc')->length > 0
                 ? $retNFe->getElementsByTagName('nfeProc')->item(0)
                 : '';
             if (! empty($nfeProc)) {
@@ -155,11 +155,11 @@ class ReturnNFe
             return $aResposta;
         }
         $dhRecbto = $tag->getElementsByTagName('dhRecbto')->item(0)->nodeValue;
-        $nRec = !empty($tag->getElementsByTagName('nRec')->item(0))
+        $nRec = $tag->getElementsByTagName('nRec')->length > 0
             ? $tag->getElementsByTagName('nRec')->item(0)->nodeValue
             : '';
-        $tMed = !empty($tag->getElementsByTagName('tMed')->item(0))
-            ? $tag->getElementsByTagName('tMed')->item(0)->nodeValue
+        $tMed = $tag->getElementsByTagName('nRec')->length > 0
+            ? $tag->getElementsByTagName('nRec')->item(0)->nodeValue
             : '';
         $aProt[] = self::zGetProt($tag);
         $aResposta = array(
@@ -552,13 +552,13 @@ class ReturnNFe
         $aEvent = array();
         $infEvento = $tag->getElementsByTagName('infEvento')->item(0);
         if (! empty($infEvento)) {
-            $cnpjDest = !empty($infEvento->getElementsByTagName('CNPJDest')->item(0))
+            $cnpjDest = $infEvento->getElementsByTagName('CNPJDest')->length > 0
                 ? $infEvento->getElementsByTagName('CNPJDest')->item(0)->nodeValue
                 : '';
-            $emailDest = !empty($infEvento->getElementsByTagName('emailDest')->item(0))
+            $emailDest = $infEvento->getElementsByTagName('emailDest')->length > 0
                 ? $infEvento->getElementsByTagName('emailDest')->item(0)->nodeValue
                 : '';
-            $nProt = !empty($infEvento->getElementsByTagName('nProt')->item(0))
+            $nProt = $infEvento->getElementsByTagName('nProt')->length > 0
                 ? $infEvento->getElementsByTagName('nProt')->item(0)->nodeValue
                 : '';
 
